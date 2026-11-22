@@ -14,13 +14,13 @@
   ],
   "license": "MIT",
   "author": "skill-manager contributors",
-  "homepage": "https://github.com/OWNER/skill-manager#readme",
+  "homepage": "https://github.com/aranmingzi/skill-manager#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/skill-manager.git"
+    "url": "git+https://github.com/aranmingzi/skill-manager.git"
   },
   "bugs": {
-    "url": "https://github.com/OWNER/skill-manager/issues"
+    "url": "https://github.com/aranmingzi/skill-manager/issues"
   },
   "exports": {
     ".": "./index.js",

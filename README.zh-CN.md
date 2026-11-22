@@ -39,7 +39,7 @@
 需要暴露 `ctx.skills` 与 `ctx.tools` 的 DSH 版本。
 
 ```bash
-git clone https://github.com/OWNER/skill-manager.git
+git clone https://github.com/aranmingzi/skill-manager.git
 ```
 
 在 DSH 里打开 **设置 → 插件 → 安装本地插件**，指向 clone 下来的目录（就是含 `package.json` 和 `cordis.patch.yml` 的那一层）。插件管理器会把包装进你的 profile、加上 `skill-manager` 这一行，并显示 `enabled: true`。

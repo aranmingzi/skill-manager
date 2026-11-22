@@ -39,7 +39,7 @@ The gate is conservative by construction: it only blocks when *another skill mat
 Requires a DSH build that exposes `ctx.skills` and `ctx.tools` to host plugins.
 
 ```bash
-git clone https://github.com/OWNER/skill-manager.git
+git clone https://github.com/aranmingzi/skill-manager.git
 ```
 
 Then, in DSH: **设置 → 插件 → 安装本地插件**, and point it at the cloned directory (the one containing `package.json` and `cordis.patch.yml`). The plugin manager copies/links the package into your profile, adds the `skill-manager` row, and prints `enabled: true`.
