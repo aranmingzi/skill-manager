@@ -67,19 +67,26 @@ function Invoke-Native([string]$exe, [string[]]$arguments) {
     }
 }
 
-$auth = Invoke-Native 'gh' @('auth', 'status')
-if ($auth.code -ne 0) {
-    Write-Host 'GitHub CLI is not logged in yet. Run this once:' -ForegroundColor Yellow
+# Probe with a real API call rather than `gh auth status`: status reads the
+# OS keyring and reports "token in keyring is invalid" in non-interactive
+# shells (and misreports proxy failures as bad tokens), while an authenticated
+# API call is exactly the capability this script needs.
+$login = (Invoke-Native 'gh' @('api', 'user', '--jq', '.login')).output
+if ([string]::IsNullOrWhiteSpace($login) -or $login -match '\s') {
+    Write-Host 'GitHub CLI is not logged in, or the network cannot reach api.github.com.' -ForegroundColor Yellow
     Write-Host ''
+    Write-Host 'One-time login:' -ForegroundColor Yellow
     Write-Host '    gh auth login' -ForegroundColor Cyan
     Write-Host ''
-    Write-Host 'Pick GitHub.com -> HTTPS -> Login with a web browser, then run:' -ForegroundColor Yellow
-    Write-Host '    powershell -ExecutionPolicy Bypass -File scripts\publish.ps1' -ForegroundColor Yellow
+    Write-Host 'If you normally reach GitHub through a proxy, make sure it is running;' -ForegroundColor Yellow
+    Write-Host 'if the machine reaches GitHub directly, clear a stale proxy first:' -ForegroundColor Yellow
+    Write-Host '    $env:HTTPS_PROXY=""; $env:HTTP_PROXY=""' -ForegroundColor Cyan
+    Write-Host ''
+    Write-Host 'Then run this script from its own directory:' -ForegroundColor Yellow
+    Write-Host '    cd <path to this repo>; powershell -ExecutionPolicy Bypass -File scripts\publish.ps1' -ForegroundColor Cyan
     exit 2
 }
 
-$login = (Invoke-Native 'gh' @('api', 'user', '--jq', '.login')).output
-if ([string]::IsNullOrWhiteSpace($login)) { Fail 'Could not read the GitHub login (gh api user failed).' }
 Write-Host "GitHub account: $login" -ForegroundColor Green
 
 Push-Location $root
