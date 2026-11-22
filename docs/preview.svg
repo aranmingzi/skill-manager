@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300" role="img" aria-label="Skill scores converge on one routed choice, and each routed skill carries its usage rate">
+  <defs>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#64748b" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- candidate pool: one square per installed skill -->
+  <g fill="none" stroke="#94a3b8" stroke-width="2" stroke-opacity="0.75">
+    <rect x="56" y="46" width="34" height="34" rx="8"/>
+    <rect x="106" y="46" width="34" height="34" rx="8"/>
+    <rect x="156" y="46" width="34" height="34" rx="8"/>
+    <rect x="56" y="98" width="34" height="34" rx="8"/>
+    <rect x="106" y="98" width="34" height="34" rx="8"/>
+    <rect x="156" y="98" width="34" height="34" rx="8"/>
+    <rect x="56" y="150" width="34" height="34" rx="8"/>
+    <rect x="106" y="150" width="34" height="34" rx="8"/>
+    <rect x="156" y="150" width="34" height="34" rx="8"/>
+  </g>
+
+  <!-- the one that actually matches -->
+  <rect x="106" y="98" width="34" height="34" rx="8" fill="#3b82f6"/>
+
+  <!-- blocked: weak match the request had wandered toward -->
+  <g stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.85">
+    <line x1="164" y1="156" x2="182" y2="174"/>
+    <line x1="182" y1="156" x2="164" y2="174"/>
+  </g>
+
+  <!-- rails: candidates flow toward the decision -->
+  <g fill="none" stroke="url(#rail)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.7">
+    <path d="M196 132 C 246 132, 262 128, 306 128"/>
+    <path d="M196 108 C 250 108, 268 122, 306 124"/>
+    <path d="M196 76 C 250 76, 272 112, 306 120"/>
+    <path d="M196 168 C 250 168, 274 140, 306 134"/>
+  </g>
+
+  <!-- decision node -->
+  <rect x="306" y="102" width="70" height="56" rx="14" fill="#3b82f6"/>
+  <rect x="318" y="120" width="46" height="6" rx="3" fill="#dbeafe"/>
+  <rect x="318" y="134" width="30" height="6" rx="3" fill="#dbeafe"/>
+
+  <!-- routed result: one ordered list, best first -->
+  <g fill="none" stroke-width="2" stroke-linecap="round">
+    <rect x="418" y="70" width="164" height="34" rx="10" stroke="#3b82f6"/>
+    <rect x="418" y="112" width="164" height="34" rx="10" stroke="#94a3b8" stroke-opacity="0.75"/>
+    <rect x="418" y="154" width="164" height="34" rx="10" stroke="#94a3b8" stroke-opacity="0.45"/>
+    <circle cx="440" cy="87" r="5" fill="#3b82f6" stroke="none"/>
+    <circle cx="440" cy="129" r="5" fill="#94a3b8" stroke="none"/>
+    <circle cx="440" cy="171" r="5" fill="#94a3b8" stroke-opacity="0.5" stroke="none"/>
+  </g>
+  <g fill="#3b82f6" fill-opacity="0.85">
+    <rect x="456" y="84" width="88" height="6" rx="3"/>
+  </g>
+  <g fill="#64748b" fill-opacity="0.6">
+    <rect x="456" y="126" width="64" height="6" rx="3"/>
+    <rect x="456" y="168" width="40" height="6" rx="3"/>
+  </g>
+  <path d="M382 130 L 408 130" stroke="#3b82f6" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <path d="M402 122 L 410 130 L 402 138" stroke="#3b82f6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- score rail under the pool -->
+  <g fill="none" stroke="#94a3b8" stroke-width="2">
+    <line x1="56" y1="216" x2="220" y2="216" stroke-opacity="0.35"/>
+  </g>
+  <g fill="#3b82f6">
+    <rect x="56" y="210" width="52" height="12" rx="6"/>
+  </g>
+  <g fill="#94a3b8" fill-opacity="0.45">
+    <rect x="120" y="212" width="30" height="8" rx="4"/>
+    <rect x="162" y="212" width="18" height="8" rx="4"/>
+  </g>
+
+  <!-- usage ledger: how often each routed skill actually got loaded -->
+  <g fill="none" stroke="#94a3b8" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 6">
+    <path d="M500 192 L 500 206"/>
+  </g>
+  <rect x="418" y="208" width="164" height="58" rx="10" fill="none" stroke="#94a3b8" stroke-opacity="0.45" stroke-width="2"/>
+  <g>
+    <rect x="432" y="220" width="96" height="8" rx="4" fill="#3b82f6"/>
+    <rect x="432" y="236" width="42" height="8" rx="4" fill="#3b82f6" fill-opacity="0.45"/>
+    <rect x="432" y="252" width="16" height="8" rx="4" fill="#3b82f6" fill-opacity="0.2"/>
+  </g>
+</svg>

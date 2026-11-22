@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Skill Manager",
+    "description": "Scores every installed skill against the current request, blocks a `skill` load when another skill matches far better, adds `skill_search` for ranked candidates, and keeps a `skill_usage` ledger of how often each skill is actually loaded. Set mode to `off` to keep search and the ledger without the gate.",
+    "detail": "docs/DETAIL.md"
+  }
+}

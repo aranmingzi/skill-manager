@@ -1,0 +1,11 @@
+- insert:
+    - id: skill-manager
+      name: skill-manager
+      config:
+        mode: block
+        gapRatio: 0.45
+        minTopScore: 1.2
+        alwaysAllow: []
+        disabled: []
+        usageHint: true
+        usageKeep: 200

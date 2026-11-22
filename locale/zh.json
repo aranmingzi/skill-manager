@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "技能管理器",
+    "description": "把当前请求和已装技能逐个打分：某个技能明显不如另一个贴合时，拦下这次 `skill` 加载并列出更合适的候选；另加 `skill_search` 按关键词排行，`skill_usage` 给出每个技能的加载次数和使用率。只想要搜索和账本、不想拦截时把 mode 设成 `off`。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}

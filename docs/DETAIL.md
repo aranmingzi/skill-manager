@@ -1,0 +1,1 @@
+![Skills scored against one request: the weak candidates are blocked and the best match is routed through](preview.svg)

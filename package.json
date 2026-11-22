@@ -1,0 +1,52 @@
+{
+  "name": "skill-manager",
+  "version": "1.2.0",
+  "private": false,
+  "type": "module",
+  "description": "Rank installed skills against the current request, gate irrelevant skill loads, and keep a per-skill usage ledger. A DeepSeek Harness host plugin.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "skills",
+    "routing",
+    "agent"
+  ],
+  "license": "MIT",
+  "author": "skill-manager contributors",
+  "homepage": "https://github.com/OWNER/skill-manager#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/skill-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OWNER/skill-manager/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "router.js",
+    "usage.js",
+    "aliases.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node test/router.test.mjs && node test/usage.test.mjs && node test/plugin.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

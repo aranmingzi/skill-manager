@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local ledger / test scratch — never commit runtime state
+skill-manager/usage.json
+test/**/usage-*.json
