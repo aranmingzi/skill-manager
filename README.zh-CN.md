@@ -34,6 +34,17 @@
 - 装的技能少于两个，或最佳候选本身分数太弱，不值得坚持；
 - 模型带了 `force: true`，或该技能在 `alwaysAllow` 名单里。
 
+## 快速上手
+
+```bash
+git clone https://github.com/aranmingzi/skill-manager.git
+```
+
+1. **装** —— DSH → 设置 → 插件 → 安装本地插件，指向 clone 下来的目录（含 `package.json` 那层）。
+2. **重启 DSH** —— 工具列表里出现 `skill_search` 和 `skill_usage`。
+3. **用** —— 加载技能前先让模型调 `skill_search({ query })`；`skill_usage()` 看这套 profile 到底在用哪些技能。
+4. **调** —— 误拦八成是词没对上，先改 `aliases.js`，别急着动阈值。
+
 ## 安装
 
 需要暴露 `ctx.skills` 与 `ctx.tools` 的 DSH 版本。
@@ -71,9 +82,9 @@ skill_search { "query": "设置页看着太像 AI 做的模板，改一下" }
 
 ```text
 skill_usage { "limit": 5 }
-→ - dsh-doc        9 次 · 24.3% · 被拦 2 · 搜索胜出 3 · 相关度均值 0.61
-  - frontend-craft 14 次 · 37.8% · 被拦 0 · 搜索胜出 6 · 相关度均值 0.79
-  - embed          0 次 · 0% · 被拦 0 · 相关度均值 —
+→ - frontend-craft 14 次 · 37.8% · 被拦 0 · 搜索胜出 6 · 相关度均值 0.79
+  - dsh-doc         9 次 · 24.3% · 被拦 2 · 搜索胜出 3 · 相关度均值 0.61
+  - embed           0 次 ·  0.0% · 被拦 0 · 搜索胜出 0 · 相关度均值 —
 ```
 
 **逃生口。** 拒绝是带牙齿的建议，不是墙。拒绝信息里写明：真确定要那个技能，就带 `force: true` 再调一次 —— 会放行，也会照记账。

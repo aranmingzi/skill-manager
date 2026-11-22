@@ -34,6 +34,17 @@ The gate is conservative by construction: it only blocks when *another skill mat
 - fewer than two skills are installed, or the winning candidate is too weak to be worth insisting on;
 - `force: true` was passed by the model, or the skill is in `alwaysAllow`.
 
+## Quick start
+
+```bash
+git clone https://github.com/aranmingzi/skill-manager.git
+```
+
+1. **Install** — DSH → 设置 → 插件 → 安装本地插件 → point at the clone (the folder with `package.json`).
+2. **Restart DSH** — the tool list gains `skill_search` and `skill_usage`.
+3. **Use it** — let the model call `skill_search({ query })` before loading a skill; `skill_usage()` shows what your profile actually uses.
+4. **Tune** — most false blocks are vocabulary gaps, so edit `aliases.js` before touching the thresholds.
+
 ## Install
 
 Requires a DSH build that exposes `ctx.skills` and `ctx.tools` to host plugins.
@@ -71,9 +82,9 @@ skill_search { "query": "make the settings page look less like a template" }
 
 ```text
 skill_usage { "limit": 5 }
-→ - dsh-doc      9 loads · 24.3% · 2 blocked · 3 search wins · mean relevance 0.61
-  - frontend-craft 14 loads · 37.8% · 0 blocked · 6 search wins · mean relevance 0.79
-  - embed         0 loads · 0% · 0 blocked · mean relevance —
+→ - frontend-craft 14 loads · 37.8% · 0 blocked · 6 search wins · mean relevance 0.79
+  - dsh-doc        9 loads · 24.3% · 2 blocked · 3 search wins · mean relevance 0.61
+  - embed          0 loads ·  0.0% · 0 blocked · 0 search wins · mean relevance —
 ```
 
 **Escape hatch.** A denial is a suggestion with teeth, not a wall. The reason text tells the model to retry with `force: true` if it is certain; that load is allowed and still counted.
